@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="ancorepane" prefHeight="706.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidevArtiste.AddArtisteController">
+   <children>
+      <TextField fx:id="firstname" layoutX="208.0" layoutY="188.0" />
+      <TextField fx:id="email" layoutX="208.0" layoutY="504.0" />
+      <TextField fx:id="phonenumber" layoutX="208.0" layoutY="459.0" />
+      <TextField fx:id="adress" layoutX="208.0" layoutY="422.0" />
+      <TextField fx:id="description" layoutX="208.0" layoutY="349.0" />
+      <TextField fx:id="birthdate" layoutX="208.0" layoutY="308.0" />
+      <TextField fx:id="birthplace" layoutX="208.0" layoutY="266.0" />
+      <TextField fx:id="lastname" layoutX="208.0" layoutY="224.0" />
+      <TextField fx:id="password" layoutX="208.0" layoutY="588.0" />
+      <TextField fx:id="username" layoutX="208.0" layoutY="545.0" />
+      <Button fx:id="image" layoutX="208.0" layoutY="384.0" mnemonicParsing="false" onAction="#takeimage" prefHeight="26.0" prefWidth="150.0" text="choose your image" />
+      <Label layoutX="79.0" layoutY="192.0" text="firstname" />
+      <Label layoutX="81.0" layoutY="508.0" text="email" />
+      <Label layoutX="80.0" layoutY="592.0" text="password" />
+      <Label layoutX="83.0" layoutY="549.0" text="username" />
+      <Label layoutX="79.0" layoutY="463.0" text="phone number" />
+      <Label layoutX="79.0" layoutY="426.0" text="adress" />
+      <Label layoutX="79.0" layoutY="389.0" text="image" />
+      <Label layoutX="79.0" layoutY="353.0" text="description" />
+      <Label layoutX="79.0" layoutY="312.0" text="birthdate" />
+      <Label layoutX="79.0" layoutY="270.0" text="birthplace" />
+      <Label layoutX="79.0" layoutY="228.0" text="lastname" />
+      <Button fx:id="AddArtiste" layoutX="352.0" layoutY="642.0" mnemonicParsing="false" onAction="#saveArtiste" text="add" textFill="#cd7f32">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <TextField fx:id="imagefield" layoutX="389.0" layoutY="384.0" prefHeight="26.0" prefWidth="122.0" />
+      <ImageView fx:id="image_view" fitHeight="150.0" fitWidth="200.0" layoutX="520.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane prefHeight="130.0" prefWidth="745.0" style="-fx-background-color: #E1C16E;">
+         <children>
+            <ImageView fitHeight="180.0" fitWidth="243.0" layoutX="283.0" layoutY="-15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../css/logoi.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

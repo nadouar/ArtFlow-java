@@ -59,9 +59,9 @@ public class DisplayAdminController implements Initializable {
 
     @FXML
     private void deleteAdmin(ActionEvent event) {
-        int selectedId =listAdmin.getSelectionModel().getSelectedItem().getId();
-    admin.deleteAdmin(selectedId);
-    displayAdmin(event);
+//        int selectedId =listAdmin.getSelectionModel().getSelectedItem().getId();
+//    admin.deleteAdmin(selectedId);
+//    displayAdmin(event);
     }
 
     @FXML

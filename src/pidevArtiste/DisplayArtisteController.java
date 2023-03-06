@@ -63,33 +63,33 @@ public class DisplayArtisteController implements Initializable {
 
     @FXML
     private void updateartiste(ActionEvent event) {
-         FXMLLoader loader;
-
-    try {
-        Artiste selectedArtiste=artistelist.getSelectionModel().getSelectedItem();
-        
-        
-        loader= new FXMLLoader(getClass().getResource("UpdateArtiste.fxml"));
-        Parent view_2=loader.load();
-       UpdateArtisteController UpdateArtisteController=loader.getController();
-        UpdateArtisteController.getArtiste(selectedArtiste);
-        UpdateArtisteController.a=selectedArtiste;
-        Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(view_2);
-        stage.setScene(scene);
-        stage.show();
-    } catch (IOException ex) {
-        Logger.getLogger(DisplayAdminController.class.getName()).log(Level.SEVERE, null, ex);
-    }
+//         FXMLLoader loader;
+//
+//    try {
+//        Artiste selectedArtiste=artistelist.getSelectionModel().getSelectedItem();
+//        
+//        
+//        loader= new FXMLLoader(getClass().getResource("UpdateArtiste.fxml"));
+//        Parent view_2=loader.load();
+//       UpdateArtisteController UpdateArtisteController=loader.getController();
+//        UpdateArtisteController.getArtiste(selectedArtiste);
+//        UpdateArtisteController.a=selectedArtiste;
+//        Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+//        Scene scene = new Scene(view_2);
+//        stage.setScene(scene);
+//        stage.show();
+//    } catch (IOException ex) {
+//        Logger.getLogger(DisplayAdminController.class.getName()).log(Level.SEVERE, null, ex);
+//    }
         
     }
 
     @FXML
     private void deleteartiste(ActionEvent event) {
-        int selectedId =artistelist.getSelectionModel().getSelectedItem().getId();
-    artiste.deleteArtiste(selectedId);
-    displayArtiste(event);
-        
+//        int selectedId =artistelist.getSelectionModel().getSelectedItem().getId();
+//    artiste.deleteArtiste(selectedId);
+//    displayArtiste(event);
+//        
     }
     
     

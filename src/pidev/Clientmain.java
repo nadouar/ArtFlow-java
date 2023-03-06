@@ -30,13 +30,11 @@ public class Clientmain extends Application {
      @Override
     public void start(Stage primaryStage) throws Exception {
         try{
+            
         System.out.println(getClass());
          Parent root = FXMLLoader.load(getClass().getResource("DisplayClientFXML.fxml"));
-            Scene scene = new Scene(root);
-           
-           
-            
-            primaryStage.setTitle("Hello World!");
+            Scene scene = new Scene(root,1107,700);
+            primaryStage.setTitle("REGISTER AS A CLIENT");
             primaryStage.setScene(scene);
             primaryStage.show();
         }catch (IOException ex) {

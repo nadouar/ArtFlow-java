@@ -17,19 +17,19 @@ public class Artiste {
     private String firstname;
     private String lastname;
     private String birthplace;
-    private String birthdate;
+    private Date birthdate;
     private String description;
     private String image;
     private String address;
     private String phonenumber;
+    private String email;
     private String username;
     private String password;
-    private String email;
 
     public Artiste() {
     }
 
-    public Artiste(String firstname, String lastname, String birthplace, String birthdate, String description, String image, String address, String phonenumber, String username, String password, String email) {
+    public Artiste(String firstname, String lastname, String birthplace, Date birthdate, String description, String image, String address, String phonenumber, String email, String username, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.birthplace = birthplace;
@@ -37,13 +37,13 @@ public class Artiste {
         this.description = description;
         this.image = image;
         this.address = address;
-        this.phonenumber = phonenumber;
+        this.phonenumber = phonenumber; 
+        this.email = email;
         this.username = username;
         this.password = password;
-        this.email = email;
     }
 
-    public Artiste(int id, String firstname, String lastname, String birthplace, String birthdate, String description, String image, String address, String phonenumber, String username, String password, String email) {
+    public Artiste(int id, String firstname, String lastname, String birthplace, Date birthdate, String description, String image, String address, String phonenumber, String email, String username, String password) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -53,9 +53,9 @@ public class Artiste {
         this.image = image;
         this.address = address;
         this.phonenumber = phonenumber;
+        this.email = email;
         this.username = username;
         this.password = password;
-        this.email = email;
     }
 
     public int getId() {
@@ -90,11 +90,11 @@ public class Artiste {
         this.birthplace = birthplace;
     }
 
-    public String getBirthdate() {
+    public Date getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(String birthdate) {
+    public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
 

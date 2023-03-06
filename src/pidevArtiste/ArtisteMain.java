@@ -30,11 +30,11 @@ public class ArtisteMain extends Application {
         try{
         System.out.println(getClass());
          Parent root = FXMLLoader.load(getClass().getResource("AddArtiste.fxml"));
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root,1100,718);
            
            
             
-            primaryStage.setTitle("Hello World!");
+            primaryStage.setTitle("REGISTER AS AN ARTIST");
             primaryStage.setScene(scene);
             primaryStage.show();
         }catch (IOException ex) {

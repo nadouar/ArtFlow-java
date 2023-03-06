@@ -13,6 +13,7 @@ import Model.Artiste;
 import Service.AdminService;
 import Service.ArtisteService;
 import Util.MyConnection;
+import java.sql.Date;
 import java.util.Scanner;
 
 /**
@@ -33,14 +34,14 @@ public class ArtisteMain {
         m2.getCnx();*/
 //        
                 ArtisteService as= new ArtisteService();
-//                
+//                Date Datevoy=Date.valueOf("2022-10-10");
 //                //update 
 //                Artiste p=new Artiste();
 //                p.setId(3);
 //                p.setFirstname("mouhamed");
 //                p.setLastname("miaoui");
 //                p.setBirthplace("tunis");
-//                p.setBirthdate("11/01/2022");
+//                p.setBirthdate(Datevoy);
 //                p.setDescription("artiste");
 //                p.setImage("C:/Users/kanza/OneDrive/Bureau/logo.png");
 //                p.setAddress("tunis");
@@ -52,16 +53,16 @@ public class ArtisteMain {
 //                as.updateArtiste(p);
 
         //add 
-         //Artiste p = as.saveArtiste(new Artiste("nada","kanzari","tunis","11/01/2022","artiste","logo.png","tunis","12356874","o","nada","nada@fgmailcom"));
+         //Artiste p = as.saveArtiste(new Artiste("i","i","tunis",Datevoy,"artiste","logo.png","tunis","12356874","nda@fgmail.com", "hhh","hh"));
          
          
          //affichage
-        System.out.println(as.fetchArtiste());
+        //System.out.println(as.fetchArtiste());
         
         
         
          //delete admin
-       // as.deleteArtiste(0);
+       as.deleteArtiste("rym");
          
     }
     

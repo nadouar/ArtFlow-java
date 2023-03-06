@@ -93,13 +93,13 @@ public class ArtisteService implements ArtisteInterface {
         
         try {
             if(exists(p.getUsername())!=true){
-                if(isValidEmail(email)){
-                if(validphonenumber(p.getPhonenumber())!=true){
+//                if(isValidEmail(email)){
+//                if(validphonenumber(p.getPhonenumber())!=true){
                    
         try {
             PreparedStatement a = cnx.prepareStatement( "INSERT INTO `artiste`(`firstname`, `lastname`,`birthplace`,`birthdate`,`description`,`image`,`address`, `phonenumber`,`email`, `username`, `password`) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-            String password = p.getPassword();
-            String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+//            String password = p.getPassword();
+//            String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
             //FileInputStream imagefile= new FileInputStream(p.getImage());
            // fls= new FileInputStream(file);
             //byte[] image =new byte[imagefile.available()];
@@ -107,20 +107,21 @@ public class ArtisteService implements ArtisteInterface {
             a.setString(1, p.getFirstname());
             a.setString(2, p.getLastname());
             a.setString(3, p.getBirthplace());
-            a.setString(4, p.getBirthdate());
+            a.setDate(4, p.getBirthdate());
             a.setString(5, p.getDescription());
             a.setString(6, p.getImage());
             a.setString(7, p.getAddress());
             a.setString(8, p.getPhonenumber());
             a.setString(9, p.getEmail());
             a.setString(10, p.getUsername());
-            a.setString(11, encryptedPassword);
+            a.setString(11, p.getPassword());
+            
             a.executeUpdate();
            System.out.println("artiste Added successfully!");
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
-                }}
+               // }}
             } 
         }catch (SQLException ex) {
             Logger.getLogger(AdminService.class.getName()).log(Level.SEVERE, null, ex);
@@ -142,7 +143,7 @@ public class ArtisteService implements ArtisteInterface {
                 p.setFirstname(rs.getString("firstname"));
                 p.setLastname(rs.getString("lastname"));
                 p.setBirthplace(rs.getString("birthplace"));
-                p.setBirthdate(rs.getString("birthdate"));
+                p.setBirthdate(rs.getDate("birthdate"));
                 p.setDescription(rs.getString("description"));
                 p.setImage(rs.getString("image"));
                 p.setAddress(rs.getString("address"));
@@ -169,22 +170,22 @@ public class ArtisteService implements ArtisteInterface {
     @Override
     public void updateArtiste(Artiste p) {
         try {
-            PreparedStatement a = cnx.prepareStatement( "UPDATE `artiste` SET `firstname`=?,`lastname`=?,`birthplace`=?,`birthdate`=?,`description`=?,`image`=?,`address`=?,`phoneNumber`=?,`email`=?,`username`=?,`password`=? WHERE `id_artiste`=?");
-            String password = p.getPassword();
-            String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+            PreparedStatement a = cnx.prepareStatement( "UPDATE `artiste` SET `firstname`=?,`lastname`=?,`birthplace`=?,`birthdate`=?,`description`=?,`image`=?,`address`=?,`phoneNumber`=?,`email`=?,`username`=?,`password`=? WHERE `username`=?");
+//            String password = p.getPassword();
+//            String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
             a.setString(1, p.getFirstname());
             a.setString(2, p.getLastname());
             a.setString(3, p.getBirthplace());
-            a.setString(4, p.getBirthdate());
+            a.setDate(4, p.getBirthdate());
             a.setString(5, p.getDescription());
             a.setString(6, p.getImage());
             a.setString(7, p.getAddress());
             a.setString(8, p.getPhonenumber());
             a.setString(9, p.getEmail());
             a.setString(10, p.getUsername());
-            a.setString(11, encryptedPassword);
+            a.setString(11, p.getPassword());
 
-            a.setInt(12, p.getId());
+            a.setString(12, p.getUsername());
 
 
             a.executeUpdate();
@@ -195,11 +196,11 @@ public class ArtisteService implements ArtisteInterface {
     }
 
     @Override
-    public void deleteArtiste(int id) {
+    public void deleteArtiste(String username) {
         try {
-            PreparedStatement a = cnx.prepareStatement( "DELETE FROM `artiste` WHERE id_artiste=?");
+            PreparedStatement a = cnx.prepareStatement( "DELETE FROM `artiste` WHERE username=?");
             
-            a.setInt(1, id);
+            a.setString(1, username);
             a.executeUpdate();
             System.out.println("artiste deleted successfully!");
             a.close();
@@ -207,4 +208,34 @@ public class ArtisteService implements ArtisteInterface {
             ex.printStackTrace();
         }
     }
+    
+    @Override
+    public Artiste getArtistebyusername(String username) {
+               //List<User> users = new ArrayList<>();
+        Artiste u =new Artiste();
+        try {
+            String req = "SELECT * FROM `artiste` WHERE username=?";
+               PreparedStatement ste = cnx.prepareStatement(req);
+               ste.setString(1, username);
+               ResultSet rs = ste.executeQuery();
+               
+            while (rs.next()) {
+                u.setId(rs.getInt("id"));
+                u.setFirstname(rs.getString("firstname"));
+                u.setLastname(rs.getString("lastname"));
+                u.setAddress(rs.getString("address"));
+                u.setPhonenumber(rs.getString("phonenumber"));
+                u.setEmail(rs.getString("email"));                
+                u.setUsername(rs.getString("username"));
+                u.setPassword(rs.getString("password"));
+                
+                //users.add(u);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return u;
+}
+    
 }

@@ -5,12 +5,17 @@
 package Service;
 
 import Interfaces.UserInterface;
+import Model.Client;
 import Model.User;
 import Util.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 /**
  *
@@ -24,51 +29,223 @@ public class UserService implements UserInterface {
          
     try {
     PreparedStatement a1 = cnx.prepareStatement("INSERT INTO `user`(`username`, `password`,`type`) VALUES (?,?,?)");
-    ResultSet rs = a1.executeQuery();
+    String password = u.getPassword();
+    String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
     a1.setString(1, u.getUsername());
-    a1.setString(2, u.getPassword());
+    a1.setString(2, encryptedPassword);
     a1.setString(3, u.getType());
     a1.executeUpdate();
-        System.out.println("0000");
+        System.out.println("user added succefully");
      } catch (SQLException ex) {
         ex.printStackTrace();
       }
     return u;
      }
-     /*if (user.getType()!="admin") {
-            user.setUsername(p.getUsername());
-            user.setPassword(p.getPassword());
-            user.setType("admin");
-            System.out.println("u re not an admin");*/
-     
-     
-     
-      public int authentification(String login, String password){
-       int i=0 ;
-        try {
-    PreparedStatement a1 = cnx.prepareStatement("SELECT * FROM user");
+     @Override
+     public int test(String username, String password){
+         int i= -1;
+         try{   
+             PreparedStatement a1 = cnx.prepareStatement("SELECT `username`, `password`,`type` FROM user");
+
+        //a1.setString(1, u.getUsername());
+
             ResultSet rs=a1.executeQuery();
-            while(rs.next()){
-                if (login.equals(rs.getString("username"))== false){
-                    i= -1;  
-                }
-                else{
-                    i=1;
+           // System.out.println(u.getUsername().equals(rs.getString("username")));
+           while(rs.next()){
+               User m =new User();
+                String pwd = password;
+    String encryptedPassword = BCrypt.hashpw(pwd, BCrypt.gensalt());
+                if (username.equals(rs.getString("username"))==false||encryptedPassword.equals(rs.getString("password"))==false){
+                      i=1;
+                    System.out.println("loged in userservice");
                     break;
+
                 }
+//                else{
+//                    System.out.println("log");
+//                    i= 1;
+//                    //break;
+//
+//                }
             }
         } catch (SQLException ex) {
              System.out.println(ex.getMessage());
         }
-          if (i==-1){
-                    System.out.print("verify your info");
+        //System.out.println(i);
+        // System.out.println(i);
+           return i;
+
+     
+     
+     
+     }
+     
+     
+      @Override
+    public void UpdateUser(User p) {
+               try {
+            String req =  "UPDATE `user` SET `username`=?,`password`=? WHERE `username`=?";
+            PreparedStatement a = cnx.prepareStatement(req);
+//            String password = p.getPassword();
+//            String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());            
+           
+            a.setString(1, p.getUsername());
+            a.setString(2, p.getPassword());
+           // a.setString(3, p.getType());
+            a.setString(3, p.getUsername());
+            a.executeUpdate();
+            System.out.println("user modified successfully!");
+        
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }    
+    }
+     
+     @Override
+      public int authentification(User m){
+       int i=0 ;
+//               String saltvalue = PassBasedEnc.getSaltvalue(30);  
+
+       			//StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();     
+
+        try {
+    PreparedStatement a1 = cnx.prepareStatement("SELECT * FROM `user` WHERE username=?");
+    a1.setString(1, m.getUsername());
+    
+        
+            ResultSet rs=a1.executeQuery();
+            //while(rs.next()){
+                if (m.getUsername().equals(rs.getString("username"))){
+                    i= 1;  
+                    System.out.println("loged in");
+
                 }
                 else{
-                    i=1;
-                     System.out.print("user authentifié avec succés");
+                    System.out.println("error");
+
+                    i= -1;
+                   
                 }
+           // }
+        } catch (SQLException ex) {
+             System.out.println(ex.getMessage());
+        }
+//          if (i==-1){
+//                    System.out.print("verify your info \n");
+//                }
+//                else{
+//                    i=1;
+//                     System.out.print("user authentifié avec succés \n");
+//                }
        
       return i ;     
    }
-     
+
+    @Override
+    public List<User> fetchUser() {
+List<User> user = new ArrayList<>();
+        try {
+            String req = "SELECT * FROM user";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {                
+                User p = new User();
+                p.setUsername(rs.getString("username"));
+                p.setPassword(rs.getString("password"));
+
+                user.add(p);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return user;
+    }    
+        PreparedStatement stmt = null;
+
+    @Override
+    public List<User> getUserbyId(int id) {
+               List<User> users = new ArrayList<>();
+        //User u =new User();
+        try {
+            String req = "SELECT * FROM `user` WHERE id=?";
+               PreparedStatement ste = cnx.prepareStatement(req);
+               ste.setInt(1, id);
+               ResultSet rs = ste.executeQuery();
+//            String req ="SELECT * FROM user WHERE `id`=?";
+//            Statement st = cnx.createStatement();
+//            ResultSet rs = st.executeQuery(req);
+//PreparedStatement a1 = cnx.prepareStatement("SELECT * FROM user WHERE `id`=?");
+//                ResultSet rs=a1.executeQuery();
+//            stmt = cnx.prepareStatement(req);
+//            stmt.setInt(1,u.getId() ); // set the ID to fetch
+//            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                User u = new User(rs.getInt(1),rs.getString("username"),rs.getString("password"),rs.getString("type"));
+               
+//                u.setId(rs.getInt(1));
+//                u.setUsername(rs.getString("username"));
+//                u.setPassword(rs.getString("password"));
+
+                users.add(u);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return users;
 }
+    
+    
+    @Override
+    public User getUserbyusername(String username) {
+               //List<User> users = new ArrayList<>();
+        User u =new User();
+        try {
+            String req = "SELECT * FROM `user` WHERE username=?";
+               PreparedStatement ste = cnx.prepareStatement(req);
+               ste.setString(1, username);
+               ResultSet rs = ste.executeQuery();
+//            String req ="SELECT * FROM user WHERE `id`=?";
+//            Statement st = cnx.createStatement();
+//            ResultSet rs = st.executeQuery(req);
+//PreparedStatement a1 = cnx.prepareStatement("SELECT * FROM user WHERE `id`=?");
+//                ResultSet rs=a1.executeQuery();
+//            stmt = cnx.prepareStatement(req);
+//            stmt.setInt(1,u.getId() ); // set the ID to fetch
+//            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                //User u = new User(rs.getString("username"),rs.getString("password"),rs.getString("type"));
+               
+                u.setId(rs.getInt("id"));
+                u.setUsername(rs.getString("username"));
+                u.setPassword(rs.getString("password"));
+                u.setType(rs.getString("type"));
+                //users.add(u);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return u;
+}
+    
+     @Override
+    public void deleteUser(String username) {
+try {
+            PreparedStatement a = cnx.prepareStatement( "DELETE FROM `user` WHERE username=?");
+            
+            a.setString(1, username);
+            a.executeUpdate();
+            System.out.println("user deleted successfully!");
+            a.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    
+    }
+     
+

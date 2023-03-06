@@ -34,30 +34,31 @@ public class ClientMain {
                 
                 
                 //add 
-         Client p = as.saveClient(new Client("rym","saidi","tunis","12345678","rym@gmail.com","be","rym"));
+       Client p = as.saveClient(new Client("nada","kanzari","tunis","12345678","kanzarinadak@gmail.com","nada","nada"));
          
          
           //affichage
-         //System.out.println(as.fetchClient());
+        // System.out.println(as.getClientbyusername("nada"));
         
         
          
                 //update 
 //                Client p=new Client();
-//                p.setId(1);
+//                
 //                p.setFirstname("emna");
 //                p.setLastname("cheniti");
 //                p.setAddress("mourouj");
 //                p.setEmail("emna@gmail.com");
 //                p.setPhonenumber("87654321");
-//                p.setUsername("emna");
+//                p.setUsername("nada1");
 //                p.setPassword("amna");
 //                as.updateClient(p);
-//
+                
+
 //        
          
          //delete admin
-         //as.deleteClient(2);
+        // as.deleteClient("nada1");
          
     }
     

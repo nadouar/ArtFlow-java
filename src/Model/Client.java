@@ -41,7 +41,15 @@ public class Client {
         this.username = username;
         this.password = password;
     }
-
+  public Client(String firstname, String lastname, String address, String phonenumber, String email, String username) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.address = address;
+        this.phonenumber = phonenumber;
+        this.email = email;
+        this.username = username;
+  
+    }
     public int getId() {
         return id;
     }

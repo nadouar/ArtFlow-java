@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +28,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -56,7 +58,7 @@ public class UpdateArtisteController implements Initializable {
     @FXML
     private TextField description;
     @FXML
-    private TextField birthdate;
+    private DatePicker birthdate;
     @FXML
     private TextField birthplace;
     @FXML
@@ -79,7 +81,7 @@ public class UpdateArtisteController implements Initializable {
         firstname.setText(e.getFirstname());
         lastname.setText(e.getLastname());
         birthplace.setText(e.getAddress());
-        birthdate.setText(e.getPhonenumber());
+        birthdate.setValue(e.getBirthdate().toLocalDate());
         description.setText(e.getEmail());
         imagefield.setText(e.getEmail());
         adress.setText(e.getEmail());
@@ -105,7 +107,7 @@ public class UpdateArtisteController implements Initializable {
 
     @FXML
     private void updateArtiste(ActionEvent event) {
-        if (firstname.getText().length() == 0||lastname.getText().length() == 0||birthplace.getText() == null||birthdate.getText().length() == 0||description.getText().length() == 0||imagefield.getText()==null||adress.getText()==null||phonenumber.getText()==null||email.getText()==null||username.getText()==null||password.getText()==null) {
+        if (firstname.getText().length() == 0||lastname.getText().length() == 0||birthplace.getText() == null||description.getText().length() == 0||imagefield.getText()==null||adress.getText()==null||phonenumber.getText()==null||email.getText()==null||username.getText()==null||password.getText()==null) {
             
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("error");
@@ -125,7 +127,8 @@ public class UpdateArtisteController implements Initializable {
                 a.setFirstname(firstname.getText());
                 a.setLastname(lastname.getText());
                 a.setBirthplace(birthplace.getText());
-                a.setBirthdate(birthdate.getText());
+                LocalDate date = birthdate.getValue();
+                a.setBirthdate(java.sql.Date.valueOf(date));
                 a.setDescription(description.getText());
                 a.setImage(imagefield.getText());
                 a.setAddress(adress.getText());

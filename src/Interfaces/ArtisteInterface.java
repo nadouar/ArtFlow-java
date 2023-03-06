@@ -17,7 +17,8 @@ public interface ArtisteInterface {
     public List<Artiste> fetchArtiste();
     public Artiste getArtiste(int id);
     public void updateArtiste(Artiste p);
-    public void deleteArtiste(int id);
+    public void deleteArtiste(String username);
     public User Userinsert (User a);
+    public Artiste getArtistebyusername(String username);
 
 }

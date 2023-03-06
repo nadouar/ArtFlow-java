@@ -58,16 +58,16 @@ public class UpdateClientFXMLController implements Initializable {
         // TODO
     }    
 
-    public void getClient(Client e){
-        id_Firstname.setText(e.getFirstname());
-        id_Lastname.setText(e.getLastname());
-        id_adress.setText(e.getAddress());
-        id_Phonenumber.setText(e.getPhonenumber());
-        id_Email.setText(e.getEmail());
-        username.setText(e.getUsername());
-        id_password.setText(e.getPassword());
-        
-    }
+        public void getClient(Client e){
+            id_Firstname.setText(e.getFirstname());
+            id_Lastname.setText(e.getLastname());
+            id_adress.setText(e.getAddress());
+            id_Phonenumber.setText(e.getPhonenumber());
+            id_Email.setText(e.getEmail());
+            username.setText(e.getUsername());
+            id_password.setText(e.getPassword());
+
+        }
     
     @FXML
     private void updateClient(ActionEvent event) {

@@ -16,6 +16,7 @@ public interface ClientInterface {
     public List<Client> fetchClient();
     public Client getClient(int id);
     public void updateClient(Client p);
-    public void deleteClient(int id);
+    public void deleteClient(String username);
+    public Client getClientbyusername(String username);
     
 }

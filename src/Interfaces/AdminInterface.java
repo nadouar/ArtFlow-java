@@ -17,5 +17,5 @@ public interface AdminInterface {
     public List<Admin> fetchAdmin();
     public Admin getAdmin(int id);
     public void updateAdmin(Admin p);
-    public void deleteAdmin(int id);
+    public void deleteAdmin(String username);
 }

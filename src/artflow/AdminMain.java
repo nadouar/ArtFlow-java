@@ -34,11 +34,10 @@ public class AdminMain {
                 
                 
                 //add 
-         //Admin p = as.saveAdmin(new Admin("rym","saidi","rym1A@gmail.com","12345678","ma ","rym"));
-         
+         Admin p = as.saveAdmin(new Admin("rym","saidi","rym1A@gmail.com","12345678","mappppppp ","rym"));
          
           //affichage
-         System.out.println(as.fetchAdmin());
+         //System.out.println(as.fetchAdmin());
         
         
          

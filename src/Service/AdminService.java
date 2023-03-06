@@ -30,7 +30,7 @@ public class AdminService implements AdminInterface {
     
     public boolean exists(String username) throws SQLException {
     
-    PreparedStatement a = cnx.prepareStatement("SELECT * FROM Admin");
+    PreparedStatement a = cnx.prepareStatement("SELECT * FROM admin");
     ResultSet rs = a.executeQuery();
      while (rs.next()) {
         if (username.equals(rs.getString("username"))) {
@@ -90,29 +90,28 @@ public class AdminService implements AdminInterface {
     @Override
     public Admin saveAdmin(Admin p) {
         String email= p.getEmail();
-        User u=new User();
         try {
             if(exists(p.getUsername())!=true){
-                if(isValidEmail(email)){
-                if(validphonenumber(p.getPhoneNumber())!=true){
+//                if(isValidEmail(email)){
+//                if(validphonenumber(p.getPhoneNumber())!=true){
                    
                     try {
                         PreparedStatement a = cnx.prepareStatement( "INSERT INTO `admin`(`firstname`, `lastname`, `email`, `phoneNumber`, `username`, `password`) VALUES (?,?,?,?,?,?)");
-                        String password = p.getPassword();
-                        String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+//                        String password = p.getPassword();
+//                        String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
                         a.setString(1, p.getFirstname());
                         a.setString(2, p.getLastname());
                         a.setString(3, p.getEmail());
                         a.setString(4, p.getPhoneNumber());
                         a.setString(5, p.getUsername());
-                        a.setString(6, encryptedPassword);
+                        a.setString(6, p.getPassword());
                         a.executeUpdate();
                         
                         System.out.println("Admin Added successfully!");
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
-                }}
+//                }}
             } 
         }catch (SQLException ex) {
             Logger.getLogger(AdminService.class.getName()).log(Level.SEVERE, null, ex);
@@ -156,16 +155,16 @@ public class AdminService implements AdminInterface {
     @Override
     public void updateAdmin(Admin p) {
         try {
-            PreparedStatement a = cnx.prepareStatement( "UPDATE `admin` SET `firstname`=?,`lastname`=?,`email`=?,`phoneNumber`=?,`username`=?,`password`=? WHERE `id`=?");
-             String password = p.getPassword();
-             String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+            PreparedStatement a = cnx.prepareStatement( "UPDATE `admin` SET `firstname`=?,`lastname`=?,`email`=?,`phoneNumber`=?,`username`=?,`password`=? WHERE `username`=?");
+//             String password = p.getPassword();
+//             String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
             a.setString(1, p.getFirstname());
             a.setString(2, p.getLastname());
             a.setString(3, p.getEmail());
             a.setString(4, p.getPhoneNumber());
             a.setString(5, p.getUsername());
-            a.setString(6, encryptedPassword);
-            a.setInt(7, p.getId());
+            a.setString(6, p.getPassword());
+            a.setString(7, p.getUsername());
 
             a.executeUpdate();
             System.out.println("Admin modified successfully!");
@@ -175,11 +174,11 @@ public class AdminService implements AdminInterface {
     }
 
     @Override
-    public void deleteAdmin(int id) {
+    public void deleteAdmin(String username) {
         try {
-            PreparedStatement a = cnx.prepareStatement( "DELETE FROM `admin` WHERE id=?");
+            PreparedStatement a = cnx.prepareStatement( "DELETE FROM `admin` WHERE username=?");
             
-            a.setInt(1, id);
+            a.setString(1, username);
             a.executeUpdate();
             System.out.println("Admin deleted successfully!");
             a.close();
@@ -187,36 +186,4 @@ public class AdminService implements AdminInterface {
             ex.printStackTrace();
         }
     }
-
- 	/*public String Login(Admin m) throws SQLException{
-            String pass = m.getPassword();
-            PreparedStatement a = cnx.prepareStatement("SELECT * FROM Admin");
-            ResultSet rs = a.executeQuery();
-            
-            while (rs.next()) {
-               if(cl==null) {
-			return "";
-		}
-            }
-            return false;
-
-		if(cl==null) {
-			return "";
-		}
-			StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();     
-			boolean coincide= passwordEncryptor.checkPassword(m.getPassword(),cl.getPassword());
-			System.out.println(coincide);
-			if(coincide==false) {
-				return "";
-			}else {
-				return cl.getstate();
-			}
-        }
-        }*/
-
-
     }
-
-
-    
-

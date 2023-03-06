@@ -56,9 +56,9 @@ public class AfficheClientFXMLController implements Initializable {
 
     @FXML
     private void deleteClient(ActionEvent event) {
-        int selectedId =listClient.getSelectionModel().getSelectedItem().getId();
-    client.deleteClient(selectedId);
-    AfficheClient(event);
+//        int selectedId =listClient.getSelectionModel().getSelectedItem().getId();
+//    client.deleteClient(selectedId);
+//    AfficheClient(event);
     }
 
     @FXML

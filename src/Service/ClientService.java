@@ -31,9 +31,11 @@ public class ClientService implements ClientInterface {
     
     PreparedStatement a = cnx.prepareStatement("SELECT * FROM client");
     ResultSet rs = a.executeQuery();
+   
      while (rs.next()) {
         if (username.equals(rs.getString("username"))) {
             System.out.println("this user already exists");
+            
             return true;
         }
     }
@@ -71,28 +73,30 @@ public class ClientService implements ClientInterface {
     public Client saveClient(Client p) {
         String email= p.getEmail();
         
-        
+//        
         try {
             if(exists(p.getUsername())!=true){
-                if(isValidEmail(email)){
-                if(validphonenumber(p.getPhonenumber())!=true){
+//                if(isValidEmail(email)){
+//                if(validphonenumber(p.getPhonenumber())!=true){
             try {
             PreparedStatement a = cnx.prepareStatement( "INSERT INTO `client`(`firstname`, `lastname`,`address`, `phonenumber`,`email`,`username`, `password`) VALUES (?,?,?,?,?,?,?)");
-            String password = p.getPassword();
-            String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+//            String password = p.getPassword();
+//                    String saltvalue = PassBasedEnc.getSaltvalue(30);  
+//
+//            String encryptedPassword = PassBasedEnc.generateSecurePassword(password, saltvalue);
             a.setString(1, p.getFirstname());
             a.setString(2, p.getLastname());
             a.setString(3, p.getAddress());
             a.setString(4, p.getPhonenumber());
             a.setString(5, p.getEmail());
             a.setString(6, p.getUsername());
-            a.setString(7,encryptedPassword);
+            a.setString(7,p.getPassword());
             a.executeUpdate();
             System.out.println("client Added successfully!");
          } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
-                }}
+//                }}
             } 
         }catch (SQLException ex) {
             Logger.getLogger(AdminService.class.getName()).log(Level.SEVERE, null, ex);
@@ -135,18 +139,18 @@ public class ClientService implements ClientInterface {
     @Override
     public void updateClient(Client p) {
         try {
-            String req =  "UPDATE `client` SET `firstname`=?,`lastname`=?,`address`=?,`phonenumber`=?,`email`=?,`username`=?,`password`=? WHERE `id`=?";
+            String req =  "UPDATE `client` SET `firstname`=?,`lastname`=?,`address`=?,`phonenumber`=?,`email`=?,`username`=?,`password`=? WHERE `username`=?";
             PreparedStatement a = cnx.prepareStatement(req);
-            String password = p.getPassword();
-            String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());            
+//            String password = p.getPassword();
+//            String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());            
             a.setString(1, p.getFirstname());
             a.setString(2, p.getLastname());
             a.setString(3, p.getAddress());
             a.setString(4, p.getPhonenumber());
             a.setString(5, p.getEmail());
             a.setString(6, p.getUsername());
-            a.setString(7, encryptedPassword);
-            a.setInt(8, p.getId());
+            a.setString(7, p.getPassword());
+            a.setString(8, p.getUsername());
             a.executeUpdate();
             System.out.println("client modified successfully!");
         
@@ -155,11 +159,11 @@ public class ClientService implements ClientInterface {
         }    }
 
     @Override
-    public void deleteClient(int id) {
+    public void deleteClient(String username) {
 try {
-            PreparedStatement a = cnx.prepareStatement( "DELETE FROM `client` WHERE id=?");
+            PreparedStatement a = cnx.prepareStatement( "DELETE FROM `client` WHERE username=?");
             
-            a.setInt(1, id);
+            a.setString(1, username);
             a.executeUpdate();
             System.out.println("client deleted successfully!");
             a.close();
@@ -169,5 +173,42 @@ try {
     }
     
     
-    
+    @Override
+    public Client getClientbyusername(String username) {
+               //List<User> users = new ArrayList<>();
+        Client u =new Client();
+        try {
+            String req = "SELECT * FROM `client` WHERE username=?";
+               PreparedStatement ste = cnx.prepareStatement(req);
+               ste.setString(1, username);
+               ResultSet rs = ste.executeQuery();
+//            String req ="SELECT * FROM user WHERE `id`=?";
+//            Statement st = cnx.createStatement();
+//            ResultSet rs = st.executeQuery(req);
+//PreparedStatement a1 = cnx.prepareStatement("SELECT * FROM user WHERE `id`=?");
+//                ResultSet rs=a1.executeQuery();
+//            stmt = cnx.prepareStatement(req);
+//            stmt.setInt(1,u.getId() ); // set the ID to fetch
+//            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                //User u = new User(rs.getString("username"),rs.getString("password"),rs.getString("type"));
+               
+                u.setId(rs.getInt("id"));
+                u.setFirstname(rs.getString("firstname"));
+                u.setLastname(rs.getString("lastname"));
+                u.setAddress(rs.getString("address"));
+                u.setPhonenumber(rs.getString("phonenumber"));
+                u.setEmail(rs.getString("email"));                
+                u.setUsername(rs.getString("username"));
+                u.setPassword(rs.getString("password"));
+                
+                //users.add(u);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return u;
 }
+    
+    }

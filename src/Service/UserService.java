@@ -58,7 +58,7 @@ public class UserService implements UserInterface {
                 if (username.equals(rs.getString("username"))==false||encryptedPassword.equals(rs.getString("password"))==false){
                       i=1;
                     System.out.println("loged in userservice");
-                    break;
+//                    break;
 
                 }
 //                else{

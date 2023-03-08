@@ -32,7 +32,7 @@ import javafx.stage.Stage;
  *
  * @author kanza
  */
-public class LoginFXMLController extends WelcomePageController implements Initializable {
+public class LoginFXMLController implements Initializable {
     //static int ID;
     //static String Username;
     private Stage stage;
@@ -47,7 +47,7 @@ public class LoginFXMLController extends WelcomePageController implements Initia
     private Button login;
     @FXML
     private PasswordField password;
-    
+    public static String usernamewelcome;
   
 
     /**
@@ -88,7 +88,10 @@ public class LoginFXMLController extends WelcomePageController implements Initia
               if(a.getType().equals("client")){
                    FXMLLoader loader =new FXMLLoader(getClass().getResource("Welcome page.fxml"));
                   root  =loader.load();
-                  static_userwelcome.setText(username.getText());
+                  //static_userwelcome.setText(username.getText());
+                  usernamewelcome =username.getText();
+                  System.out.println(usernamewelcome+"!!!!!!!!!!! ena mel login !!!!!!!!!!!");
+
 //                  WelcomePageController wpc= loader.getController();
 //                  wpc.displayId(Username);
                   stage =(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -105,7 +108,8 @@ public class LoginFXMLController extends WelcomePageController implements Initia
                   //stage.show();
                   FXMLLoader loader =new FXMLLoader(getClass().getResource("SettingAdmin.fxml"));
                   root  =loader.load();
-                  static_userwelcome.setText(username.getText());
+                  
+                  //static_userwelcome.setText(username.getText());
 //                  WelcomePageController wpc= loader.getController();
 //                  wpc.displayId(Username);
                   stage =(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -122,7 +126,7 @@ public class LoginFXMLController extends WelcomePageController implements Initia
                   //stage.show();
                   FXMLLoader loader =new FXMLLoader(getClass().getResource("SettingArtiste.fxml"));
                   root  =loader.load();
-                  static_userwelcome.setText(username.getText());
+                  //static_userwelcome.setText(username.getText());
 //                  WelcomePageController wpc= loader.getController();
 //                  wpc.displayId(Username);
                   stage =(Stage)((Node)event.getSource()).getScene().getWindow();

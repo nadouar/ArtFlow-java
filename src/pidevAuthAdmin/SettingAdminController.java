@@ -77,7 +77,8 @@ public static Label static_userwelcome;
 
     @FXML
     private void seeprofile(ActionEvent event) {
-        getAdminbyusername(static_userwelcome.getText());
+        userwelcome.setText(LoginAdminController.usernamewelcomeadmin);
+        getAdminbyusername(LoginAdminController.usernamewelcomeadmin);
     }
 
     @FXML
@@ -183,5 +184,27 @@ public static Label static_userwelcome;
             ex.printStackTrace();
         }
 }
+
+    @FXML
+    private void Artistlist(ActionEvent event) throws IOException {
+         FXMLLoader loader;
+        loader= new FXMLLoader(getClass().getResource("LoginAdmin.fxml"));
+        Parent view_2=loader.load();
+        Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(view_2);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void Clientlist(ActionEvent event) throws IOException {
+        FXMLLoader loader;
+       loader= new FXMLLoader(getClass().getResource("ListClient.fxml"));
+        Parent view_2=loader.load();
+        Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(view_2);
+        stage.setScene(scene);
+        stage.show();
+    }
     
 }

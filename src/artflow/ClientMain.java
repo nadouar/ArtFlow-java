@@ -34,13 +34,13 @@ public class ClientMain {
                 
                 
                 //add 
-       Client p = as.saveClient(new Client("nada","kanzari","tunis","12345678","kanzarinadak@gmail.com","nada","nada"));
+       //Client p = as.saveClient(new Client("nada","kanzari","tunis","12345678","kanzarinadak@gmail.com","nada","nada"));
          
          
           //affichage
         // System.out.println(as.getClientbyusername("nada"));
         
-        
+        System.out.println(as.fetchClient());
          
                 //update 
 //                Client p=new Client();

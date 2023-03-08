@@ -116,7 +116,9 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" + "id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", address=" + address + ", phonenumber=" + phonenumber + ", email=" + email + ", username=" + username + ", password=" + password + '}';
+        return " firstname=" + firstname +System.lineSeparator()+ " lastname=" + lastname +System.lineSeparator()+ " address=" + address +System.lineSeparator()+ " phonenumber=" + phonenumber +System.lineSeparator()+ " email=" + email +System.lineSeparator()+ " username=" + username +System.lineSeparator();
+        /* ", password=" + password + */
+    
     }
     
     

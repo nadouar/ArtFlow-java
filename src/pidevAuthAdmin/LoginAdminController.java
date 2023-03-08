@@ -29,7 +29,7 @@ import static pidevAuthArtiste.SettingArtisteController.static_userwelcome;
  *
  * @author kanza
  */
-public class LoginAdminController extends SettingAdminController implements Initializable {
+public class LoginAdminController implements Initializable {
 private Stage stage;
     private Scene scene;
     private Parent root;
@@ -39,6 +39,7 @@ private Stage stage;
     private Button login;
     @FXML
     private PasswordField password;
+    public static String usernamewelcomeadmin;
 
     /**
      * Initializes the controller class.
@@ -73,19 +74,21 @@ private Stage stage;
               //ID = a.getId();
               //System.out.println(ID); 
               //System.out.println(u.getType());
-              if(a.getType().equals("client")){
-                   FXMLLoader loader =new FXMLLoader(getClass().getResource("../pidevAuth/Welcome page.fxml"));
-                  root  =loader.load();
-                  static_userwelcome.setText(username.getText());
-//                  WelcomePageController wpc= loader.getController();
-//                  wpc.displayId(Username);
-                  stage =(Stage)((Node)event.getSource()).getScene().getWindow();
-                  scene = new Scene(root);
-                  stage.setScene(scene);
-                  stage.show();
-                  
-              
-              }else if(a.getType().equals("admin")){
+//              if(a.getType().equals("client")){
+//                   FXMLLoader loader =new FXMLLoader(getClass().getResource("../pidevAuth/Welcome page.fxml"));
+//                  root  =loader.load();
+//                  static_userwelcome.setText(username.getText());
+////                  WelcomePageController wpc= loader.getController();
+////                  wpc.displayId(Username);
+//                  stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+//                  scene = new Scene(root);
+//                  stage.setScene(scene);
+//                  stage.show();
+//                  
+//                  
+//              
+//              }else 
+                    if(a.getType().equals("admin")){
                   // Parent loader = FXMLLoader.load(getClass().getResource("Welcome page.fxml"));
                   //Scene scene = new Scene(loader, 600, 400);
                   //Stage stage= new Stage();
@@ -93,7 +96,7 @@ private Stage stage;
                   //stage.show();
                   FXMLLoader loader =new FXMLLoader(getClass().getResource("SettingAdmin.fxml"));
                   root  =loader.load();
-                  static_userwelcome.setText(username.getText());
+                  usernamewelcomeadmin =username.getText();
 //                  WelcomePageController wpc= loader.getController();
 //                  wpc.displayId(Username);
                   stage =(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -102,23 +105,23 @@ private Stage stage;
                   stage.show();
                   
               
-              }else if(a.getType().equals("artiste")){
-                  // Parent loader = FXMLLoader.load(getClass().getResource("Welcome page.fxml"));
-                  //Scene scene = new Scene(loader, 600, 400);
-                  //Stage stage= new Stage();
-                  //stage.setScene(scene);
-                  //stage.show();
-                  FXMLLoader loader =new FXMLLoader(getClass().getResource("../pidevAuthArtiste/SettingArtiste.fxml"));
-                  root  =loader.load();
-                  static_userwelcome.setText(username.getText());
-//                  WelcomePageController wpc= loader.getController();
-//                  wpc.displayId(Username);
-                  stage =(Stage)((Node)event.getSource()).getScene().getWindow();
-                  scene = new Scene(root);
-                  stage.setScene(scene);
-                  stage.show();
-                  
-              
+//              }else if(a.getType().equals("artiste")){
+//                  // Parent loader = FXMLLoader.load(getClass().getResource("Welcome page.fxml"));
+//                  //Scene scene = new Scene(loader, 600, 400);
+//                  //Stage stage= new Stage();
+//                  //stage.setScene(scene);
+//                  //stage.show();
+//                  FXMLLoader loader =new FXMLLoader(getClass().getResource("../pidevAuthArtiste/SettingArtiste.fxml"));
+//                  root  =loader.load();
+//                  static_userwelcome.setText(username.getText());
+////                  WelcomePageController wpc= loader.getController();
+////                  wpc.displayId(Username);
+//                  stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+//                  scene = new Scene(root);
+//                  stage.setScene(scene);
+//                  stage.show();
+//                  
+//              
               }
               
            }

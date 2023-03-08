@@ -34,7 +34,7 @@ public class ArtisteMain {
         m2.getCnx();*/
 //        
                 ArtisteService as= new ArtisteService();
-//                Date Datevoy=Date.valueOf("2022-10-10");
+                Date Datevoy=Date.valueOf("2022-10-10");
 //                //update 
 //                Artiste p=new Artiste();
 //                p.setId(3);
@@ -53,7 +53,7 @@ public class ArtisteMain {
 //                as.updateArtiste(p);
 
         //add 
-         //Artiste p = as.saveArtiste(new Artiste("i","i","tunis",Datevoy,"artiste","logo.png","tunis","12356874","nda@fgmail.com", "hhh","hh"));
+        // Artiste p = as.saveArtiste(new Artiste("i","i","tunis",Datevoy,"artiste","logo.png","tunis","12356874","nda@fgmail.com", "rym","rym"));
          
          
          //affichage
@@ -62,7 +62,7 @@ public class ArtisteMain {
         
         
          //delete admin
-       as.deleteArtiste("rym");
+       //as.deleteArtiste("rym");
          
     }
     

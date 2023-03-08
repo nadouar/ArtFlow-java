@@ -93,7 +93,8 @@ public static Label static_userwelcome;
 
     @FXML
     private void seeprofile(ActionEvent event) {
-         getClientbyusername(static_userwelcome.getText());
+        userwelcome.setText(LoginArtisteController.usernamewelcomeartiste);
+         getClientbyusername(LoginArtisteController.usernamewelcomeartiste);
     }
     
 

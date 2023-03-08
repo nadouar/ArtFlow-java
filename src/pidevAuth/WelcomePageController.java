@@ -75,7 +75,11 @@ private Stage stage;
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      static_userwelcome=userwelcome;
+        
+     // userwelcome.setText(LoginFXMLController.usernamewelcome);
+      seeprofile(null);
+      //System.out.println(LoginFXMLController.usernamewelcome);
+       
        // Client a =   u.getClientbyusername(static_userwelcome.getText());
      //firstname.setText(a.getFirstname());
 //     getClientbyusername(static_userwelcome.getText());
@@ -91,7 +95,10 @@ private Stage stage;
     
     @FXML
     private void seeprofile(ActionEvent event) {
-         getClientbyusername(static_userwelcome.getText());
+        userwelcome.setText(LoginFXMLController.usernamewelcome);
+         //getClientbyusername(static_userwelcome.getText());
+                  getClientbyusername(LoginFXMLController.usernamewelcome);
+
     }
 
     @FXML

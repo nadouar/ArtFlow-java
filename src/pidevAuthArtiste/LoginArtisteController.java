@@ -29,7 +29,7 @@ import static pidevAuth.WelcomePageController.static_userwelcome;
  *
  * @author kanza
  */
-public class LoginArtisteController extends SettingArtisteController implements Initializable {
+public class LoginArtisteController implements Initializable {
 private Stage stage;
     private Scene scene;
     private Parent root;
@@ -39,6 +39,7 @@ private Stage stage;
     private PasswordField password;
     @FXML
     private TextField username;
+    public static String usernamewelcomeartiste;
 
     /**
      * Initializes the controller class.
@@ -109,7 +110,8 @@ private Stage stage;
                   //stage.show();
                   FXMLLoader loader =new FXMLLoader(getClass().getResource("SettingArtiste.fxml"));
                   root  =loader.load();
-                  static_userwelcome.setText(username.getText());
+                  usernamewelcomeartiste =username.getText();
+                  //static_userwelcome.setText(username.getText());
 //                  WelcomePageController wpc= loader.getController();
 //                  wpc.displayId(Username);
                   stage =(Stage)((Node)event.getSource()).getScene().getWindow();

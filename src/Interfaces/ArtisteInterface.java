@@ -20,5 +20,7 @@ public interface ArtisteInterface {
     public void deleteArtiste(String username);
     public User Userinsert (User a);
     public Artiste getArtistebyusername(String username);
+        public List<Artiste> recherche(String username);
+
 
 }

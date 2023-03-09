@@ -22,7 +22,7 @@
                   <Image url="@../css/logoi.png" />
                </image>
             </ImageView>
-            <VBox layoutY="286.0" prefHeight="440.0" prefWidth="286.0" spacing="30.0" AnchorPane.bottomAnchor="214.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="286.0">
+            <VBox layoutY="178.0" prefHeight="661.0" prefWidth="286.0" spacing="30.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#Artistlist" prefHeight="71.0" prefWidth="286.0" style="-fx-background-color: #DFC583;" styleClass="sidebar" stylesheets="@../pidevAuth/fxml.css" text="Artists List" textFill="WHITE">
                      <font>
@@ -36,42 +36,50 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <HBox prefHeight="60.0" prefWidth="286.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#Clientlist" prefHeight="71.0" prefWidth="286.0" style="-fx-background-color: #DFC583;" styleClass="sidebar" stylesheets="@../pidevAuth/fxml.css" text="Client List" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold Italic" size="19.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="41.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../css/customer.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="286.0" style="-fx-background-color: #DFC583;" styleClass="sidebar" stylesheets="@../pidevAuth/fxml.css" text="Auctions" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#Clientlist" prefHeight="71.0" prefWidth="286.0" style="-fx-background-color: #DFC583;" styleClass="sidebar" stylesheets="@../pidevAuth/fxml.css" text="Client List" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="19.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="41.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../css/customer.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="71.0" prefWidth="286.0" style="-fx-background-color: #DFC583;" styleClass="sidebar" stylesheets="@../pidevAuth/fxml.css" text="Art pieaces" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="19.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../css/portrait-of-oval-shape-hanging-as-vintage-museum-art-piece.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="71.0" prefWidth="286.0" style="-fx-background-color: #DFC583;" styleClass="sidebar" stylesheets="@../pidevAuth/fxml.css" text="Delivery" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="19.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../css/bid.png" />
+                              <Image url="@../css/delivery.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="286.0" style="-fx-background-color: #DFC583;" styleClass="sidebar" stylesheets="@../pidevAuth/fxml.css" text="Chart" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="71.0" prefWidth="286.0" style="-fx-background-color: #DFC583;" styleClass="sidebar" stylesheets="@../pidevAuth/fxml.css" text="Stock" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="19.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../css/shopping-bag.png" />
+                              <Image url="@../css/ready-stock.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -82,7 +90,25 @@
                         <Insets right="15.0" />
                      </padding>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#Settings" prefHeight="59.0" prefWidth="286.0" style="-fx-background-color: #DFC583;" styleClass="sidebar" stylesheets="@../pidevAuth/fxml.css" text="Setting" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="71.0" prefWidth="286.0" style="-fx-background-color: #DFC583;" styleClass="sidebar" stylesheets="@../pidevAuth/fxml.css" text="Returns" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="19.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../css/product-return.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets right="15.0" />
+                     </padding>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Settings" prefHeight="71.0" prefWidth="286.0" style="-fx-background-color: #DFC583;" styleClass="sidebar" stylesheets="@../pidevAuth/fxml.css" text="Setting" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="19.0" />
                      </font>
@@ -90,6 +116,18 @@
                         <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../css/setting.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="606.0" mnemonicParsing="false" onAction="#Logout" prefHeight="71.0" prefWidth="286.0" style="-fx-background-color: #DFC583;" styleClass="sidebar" stylesheets="@../pidevAuth/fxml.css" text="Log out" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="19.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../css/exit.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -118,7 +156,8 @@
                   </Label>
                </children>
             </AnchorPane>
-            <ListView layoutX="143.0" layoutY="269.0" prefHeight="583.0" prefWidth="768.0" />
+            <ListView fx:id="listClient" layoutX="143.0" layoutY="269.0" prefHeight="583.0" prefWidth="768.0" />
+            <HBox layoutX="-76.0" layoutY="449.0" prefHeight="60.0" prefWidth="286.0" />
          </children>
       </AnchorPane>
    </children>

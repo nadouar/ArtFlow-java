@@ -188,7 +188,7 @@ public static Label static_userwelcome;
     @FXML
     private void Artistlist(ActionEvent event) throws IOException {
          FXMLLoader loader;
-        loader= new FXMLLoader(getClass().getResource("LoginAdmin.fxml"));
+        loader= new FXMLLoader(getClass().getResource("ListArtiste.fxml"));
         Parent view_2=loader.load();
         Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(view_2);
@@ -205,6 +205,10 @@ public static Label static_userwelcome;
         Scene scene = new Scene(view_2);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void Logout(ActionEvent event) {
     }
     
 }

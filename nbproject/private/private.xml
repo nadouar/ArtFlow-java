@@ -3,10 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/pidevAuth/LoginFXMLController.java</file>
-            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/Service/ClientService.java</file>
-            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/pidevAuthAdmin/ListClientController.java</file>
-            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/pidev/AfficheClientFXMLController.java</file>
+            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/pidevAuthArtiste/SettingArtisteController.java</file>
             <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/pidevAuthAdmin/SettingAdminController.java</file>
         </group>
     </open-files>

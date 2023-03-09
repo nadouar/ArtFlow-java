@@ -156,7 +156,7 @@ public class Artiste {
 
     @Override
     public String toString() {
-        return "Artiste{" + "id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", birthplace=" + birthplace + ", birthdate=" + birthdate + ", description=" + description + ", image=" + image + ", address=" + address + ", phonenumber=" + phonenumber + ", username=" + username + ", password=" + password + ", email=" + email + '}';
+        return " firstname=" + firstname + System.lineSeparator()+" lastname=" + lastname + System.lineSeparator()+" birthplace=" + birthplace +System.lineSeparator()+ " birthdate=" + birthdate +System.lineSeparator()+ " description=" + description +System.lineSeparator()+ " image=" + image +System.lineSeparator()+ " address=" + address +System.lineSeparator()+ " phonenumber=" + phonenumber +System.lineSeparator()+ " username=" + username +System.lineSeparator();
     }
     
     

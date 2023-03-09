@@ -210,5 +210,67 @@ try {
         }
         return u;
 }
+    @Override
+      public List<Client> recherche(String username) {
+               //List<User> users = new ArrayList<>();
+        /*Client u =new Client();
+        try {
+            String req = "select * from client WHERE `email` LIKE '%"+username+"%' or `username` like '%"+username+"%'";
+               PreparedStatement ste = cnx.prepareStatement(req);
+               
+               ResultSet rs = ste.executeQuery();
+//            String req ="SELECT * FROM user WHERE `id`=?";
+//            Statement st = cnx.createStatement();
+//            ResultSet rs = st.executeQuery(req);
+//PreparedStatement a1 = cnx.prepareStatement("SELECT * FROM user WHERE `id`=?");
+//                ResultSet rs=a1.executeQuery();
+//            stmt = cnx.prepareStatement(req);
+//            stmt.setInt(1,u.getId() ); // set the ID to fetch
+//            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                //User u = new User(rs.getString("username"),rs.getString("password"),rs.getString("type"));
+               
+                u.setId(rs.getInt("id"));
+                u.setFirstname(rs.getString("firstname"));
+                u.setLastname(rs.getString("lastname"));
+                u.setAddress(rs.getString("address"));
+                u.setPhonenumber(rs.getString("phonenumber"));
+                u.setEmail(rs.getString("email"));                
+                u.setUsername(rs.getString("username"));
+                u.setPassword(rs.getString("password"));
+                
+                //users.add(u);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return u;
+}*/
+                List<Client> client = new ArrayList<>();
+        try {
+            String req = "SELECT * FROM client WHERE `email` LIKE '%"+username+"%' or `username` like '%"+username+"%'";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {                
+                Client p = new Client();
+                p.setId(rs.getInt(1));
+                p.setFirstname(rs.getString("firstname"));
+                p.setLastname(rs.getString("lastname"));
+                p.setAddress(rs.getString("address"));
+                p.setPhonenumber(rs.getString("phoneNumber"));
+                p.setEmail(rs.getString("email"));
+                p.setUsername(rs.getString("username"));
+                p.setPassword(rs.getString("password"));
+
+                client.add(p);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return client;
+      }
     
     }

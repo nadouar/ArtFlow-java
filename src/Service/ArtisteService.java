@@ -237,5 +237,36 @@ public class ArtisteService implements ArtisteInterface {
         }
         return u;
 }
+
+    @Override
+    public List<Artiste> recherche(String username) {
+List<Artiste> client = new ArrayList<>();
+        try {
+            String req = "SELECT * FROM artiste WHERE `email` LIKE '%"+username+"%' or `username` like '%"+username+"%'";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {                
+                Artiste p = new Artiste();
+                p.setId(rs.getInt(1));
+              p.setFirstname(rs.getString("firstname"));
+                p.setLastname(rs.getString("lastname"));
+                p.setBirthplace(rs.getString("birthplace"));
+                p.setBirthdate(rs.getDate("birthdate"));
+                p.setDescription(rs.getString("description"));
+                p.setImage(rs.getString("image"));
+                p.setAddress(rs.getString("address"));
+                p.setPhonenumber(rs.getString("phoneNumber"));
+                p.setEmail(rs.getString("email"));
+                p.setUsername(rs.getString("username"));
+                p.setPassword(rs.getString("password"));
+
+                client.add(p);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return client;
+      }    }
     
-}

@@ -40,7 +40,7 @@ public class ClientMain {
           //affichage
         // System.out.println(as.getClientbyusername("nada"));
         
-        System.out.println(as.fetchClient());
+        System.out.println(as.recherche("nada"));
          
                 //update 
 //                Client p=new Client();

@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" maxHeight="955.0" maxWidth="1324.0" minHeight="955.0" minWidth="1324.0" prefHeight="955.0" prefWidth="1324.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="pidevAuthAdmin.ListClientController">
+<AnchorPane id="AnchorPane" maxHeight="955.0" maxWidth="1324.0" minHeight="955.0" minWidth="1324.0" prefHeight="955.0" prefWidth="1324.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="pidevAuthAdmin.ListArtisteController">
    <children>
       <AnchorPane prefHeight="955.0" prefWidth="286.0" style="-fx-background-color: #DFC583;">
          <children>
@@ -143,20 +143,20 @@
          <children>
             <AnchorPane layoutX="143.0" layoutY="42.0" prefHeight="70.0" prefWidth="768.0" style="-fx-background-color: fff;">
                <children>
-                  <TextField fx:id="searchField" layoutX="363.0" layoutY="22.0" prefHeight="26.0" prefWidth="257.0" promptText="Enter the client's username" styleClass="text-inputlogin" stylesheets="@../pidevAuth/fxml.css" />
-                  <Button layoutX="650.0" layoutY="23.0" mnemonicParsing="false" onAction="#searchClientbyUsername" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: #60512E; -fx-background-radius: 25;" text="Search" textFill="WHITE">
+                  <TextField fx:id="searchField" layoutX="363.0" layoutY="22.0" prefHeight="26.0" prefWidth="257.0" promptText="Enter the artist's username or email" styleClass="text-inputlogin" stylesheets="@../pidevAuth/fxml.css" />
+                  <Button layoutX="650.0" layoutY="23.0" mnemonicParsing="false" onAction="#searchArtistebyUsername" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: #60512E; -fx-background-radius: 25;" text="Search" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Label layoutX="48.0" layoutY="19.0" text="LIST OF CLIENTS" textFill="#60512e">
+                  <Label layoutX="48.0" layoutY="19.0" text="LIST OF ARTIST" textFill="#60512e">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <ListView fx:id="listClient" layoutX="143.0" layoutY="269.0" prefHeight="583.0" prefWidth="768.0" />
+            <ListView fx:id="listArtiste" layoutX="143.0" layoutY="269.0" prefHeight="583.0" prefWidth="768.0" />
             <HBox layoutX="-76.0" layoutY="449.0" prefHeight="60.0" prefWidth="286.0" />
          </children>
       </AnchorPane>

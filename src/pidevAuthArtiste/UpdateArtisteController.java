@@ -37,9 +37,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import pidev.UpdateClientFXMLController;
 import static pidevAuth.WelcomePageController.static_userwelcome;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -138,11 +142,20 @@ public class UpdateArtisteController extends SettingArtisteController implements
         }    
         cl.updateArtiste(c);
         
-      
+       String title ="YOUR INFORMATIONS HAS SUCCESSFULLY UPDATED !";
+                        TrayNotification tray = new  TrayNotification();
+                        AnimationType type =  AnimationType.POPUP;
+                        
+                        tray.setAnimationType(type);
+                        tray.setTitle(title);
+                        tray.setMessage(title);
+                        tray.setNotificationType(NotificationType.SUCCESS);
+                        tray.showAndDismiss(Duration.millis(3000));
+
         
         FXMLLoader loader =new FXMLLoader(getClass().getResource("SettingArtiste.fxml"));
                   root  =loader.load();
-                  static_userwelcome.setText(username.getText());
+                  //static_userwelcome.setText(username.getText());
 //                  WelcomePageController wpc= loader.getController();
 //                  wpc.displayId(Username);
                   stage =(Stage)((Node)event.getSource()).getScene().getWindow();

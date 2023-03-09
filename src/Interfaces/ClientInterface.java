@@ -18,5 +18,6 @@ public interface ClientInterface {
     public void updateClient(Client p);
     public void deleteClient(String username);
     public Client getClientbyusername(String username);
+    public List<Client> recherche(String username);
     
 }

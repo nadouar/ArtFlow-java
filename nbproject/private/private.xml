@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/pidevAuthArtiste/SettingArtisteController.java</file>
-            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/pidevAuthAdmin/SettingAdminController.java</file>
+            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/pidevAuth/LoginFXMLController.java</file>
+            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/pidev/DisplayClientFXMLController.java</file>
+            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/Model/Admin.java</file>
+            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/Service/UserService.java</file>
+            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/pidevAuth/WelcomePageController.java</file>
+            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/Service/AdminService.java</file>
+            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/Model/Client.java</file>
+            <file>file:/C:/Users/kanza/OneDrive/Documents/NetBeansProjects/ArtFlow/src/Model/User.java</file>
         </group>
     </open-files>
 </project-private>

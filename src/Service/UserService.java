@@ -28,12 +28,17 @@ public class UserService implements UserInterface {
      public User Userinsert(User u){
          
     try {
-    PreparedStatement a1 = cnx.prepareStatement("INSERT INTO `user`(`username`, `password`,`type`) VALUES (?,?,?)");
+    PreparedStatement a1 = cnx.prepareStatement("INSERT INTO `user`(`username`,`roles`, `password`,`email`) VALUES (?,?,?,?)");
     String password = u.getPassword();
     String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
-    a1.setString(1, u.getUsername());
-    a1.setString(2, encryptedPassword);
-    a1.setString(3, u.getType());
+   a1.setString(1, u.getUsername());
+
+        // Convert the roles array to a comma-separated string
+       // String rolesStr = String.join(",", u.getRoles());
+        a1.setString(2, u.getRoles());
+
+        a1.setString(3, encryptedPassword);
+        a1.setString(4, u.getEmail());
     a1.executeUpdate();
         System.out.println("user added succefully");
      } catch (SQLException ex) {
@@ -45,7 +50,7 @@ public class UserService implements UserInterface {
      public int test(String username, String password){
          int i= -1;
          try{   
-             PreparedStatement a1 = cnx.prepareStatement("SELECT `username`, `password`,`type` FROM user");
+             PreparedStatement a1 = cnx.prepareStatement("SELECT `username`,`roles`, `password` FROM user");
 
         //a1.setString(1, u.getUsername());
 
@@ -182,7 +187,7 @@ List<User> user = new ArrayList<>();
 //            stmt.setInt(1,u.getId() ); // set the ID to fetch
 //            ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                User u = new User(rs.getInt(1),rs.getString("username"),rs.getString("password"),rs.getString("type"));
+                User u = new User(rs.getInt(1),rs.getString("username"),rs.getString("roles"),rs.getString("password"),rs.getString("email"));
                
 //                u.setId(rs.getInt(1));
 //                u.setUsername(rs.getString("username"));
@@ -220,8 +225,9 @@ List<User> user = new ArrayList<>();
                
                 u.setId(rs.getInt("id"));
                 u.setUsername(rs.getString("username"));
+                u.setRoles(rs.getString("roles"));
                 u.setPassword(rs.getString("password"));
-                u.setType(rs.getString("type"));
+                u.setEmail(rs.getString("email"));
                 //users.add(u);
             }
             

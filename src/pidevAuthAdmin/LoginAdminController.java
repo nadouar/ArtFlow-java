@@ -88,7 +88,7 @@ private Stage stage;
 //                  
 //              
 //              }else 
-                    if(a.getType().equals("admin")){
+                    if(a.getRoles().equals("[\"admin\"]")){
                   // Parent loader = FXMLLoader.load(getClass().getResource("Welcome page.fxml"));
                   //Scene scene = new Scene(loader, 600, 400);
                   //Stage stage= new Stage();

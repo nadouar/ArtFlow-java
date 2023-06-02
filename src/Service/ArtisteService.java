@@ -70,21 +70,21 @@ public class ArtisteService implements ArtisteInterface {
 
 }
     
-    @Override
-     public User Userinsert(User u){
-    try {
-    PreparedStatement a1 = cnx.prepareStatement("INSERT INTO `user`(`username`, `password`,`type`) VALUES (?,?,?)");
-    ResultSet rs = a1.executeQuery();
-    a1.setString(1, u.getUsername());
-    a1.setString(2, u.getPassword());
-    a1.setString(3, u.getType());
-    a1.executeUpdate();
-        System.out.println("0000");
-     } catch (SQLException ex) {
-        ex.printStackTrace();
-      }
-    return u;
-     }
+//    @Override
+//     public User Userinsert(User u){
+//    try {
+//    PreparedStatement a1 = cnx.prepareStatement("INSERT INTO `user`(`username`, `password`,`type`) VALUES (?,?,?)");
+//    ResultSet rs = a1.executeQuery();
+//    a1.setString(1, u.getUsername());
+//    a1.setString(2, u.getPassword());
+//    a1.setString(3, u.getType());
+//    a1.executeUpdate();
+//        System.out.println("0000");
+//     } catch (SQLException ex) {
+//        ex.printStackTrace();
+//      }
+//    return u;
+//     }
 
     
     @Override

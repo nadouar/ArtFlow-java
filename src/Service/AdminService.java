@@ -67,24 +67,24 @@ public class AdminService implements AdminInterface {
     return false;
 
 }
-       public boolean insertuser(User user) throws SQLException {
-    
-    Admin p=new Admin();
-    PreparedStatement a = cnx.prepareStatement("INSERT INTO `user`(`username`, `password`,`type`) VALUES (?,?,?)");
-    ResultSet rs = a.executeQuery();
-     while (rs.next()) {
-        if (user.getType()!="admin") {
-            user.setUsername(p.getUsername());
-            user.setPassword(p.getPassword());
-            user.setType("admin");
-            System.out.println("u re not an admin");
-            return true;
-        }
-    }
-     
-    return false;
-
-}
+//       public boolean insertuser(User user) throws SQLException {
+//    
+//    Admin p=new Admin();
+//    PreparedStatement a = cnx.prepareStatement("INSERT INTO `user`(`username`, `password`,`type`) VALUES (?,?,?)");
+//    ResultSet rs = a.executeQuery();
+//     while (rs.next()) {
+//        if (user.getType()!="admin") {
+//            user.setUsername(p.getUsername());
+//            user.setPassword(p.getPassword());
+//            user.setType("admin");
+//            System.out.println("u re not an admin");
+//            return true;
+//        }
+//    }
+//     
+//    return false;
+//
+//}
     
     
     @Override

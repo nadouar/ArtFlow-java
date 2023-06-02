@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -85,7 +85,7 @@ public class LoginFXMLController implements Initializable {
               //ID = a.getId();
               //System.out.println(ID); 
               //System.out.println(u.getType());
-              if(a.getType().equals("client")){
+              if(a.getRoles().equals("[\"client\"]")){
                    FXMLLoader loader =new FXMLLoader(getClass().getResource("Welcome page.fxml"));
                   root  =loader.load();
                   //static_userwelcome.setText(username.getText());
@@ -100,7 +100,7 @@ public class LoginFXMLController implements Initializable {
                   stage.show();
                   
               
-              }else if(a.getType().equals("admin")){
+              }else if(a.getRoles().equals("[\"admin\"]")){
                   // Parent loader = FXMLLoader.load(getClass().getResource("Welcome page.fxml"));
                   //Scene scene = new Scene(loader, 600, 400);
                   //Stage stage= new Stage();
@@ -118,7 +118,7 @@ public class LoginFXMLController implements Initializable {
                   stage.show();
                   
               
-              }else if(a.getType().equals("artiste")){
+              }else if(a.getRoles().equals("[\"artiste\"]")){
                   // Parent loader = FXMLLoader.load(getClass().getResource("Welcome page.fxml"));
                   //Scene scene = new Scene(loader, 600, 400);
                   //Stage stage= new Stage();

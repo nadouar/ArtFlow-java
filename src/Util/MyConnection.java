@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 public class MyConnection {
      //DB PARAM
-    static final String URL ="jdbc:mysql://localhost:3306/artflow?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    static final String URL ="jdbc:mysql://localhost:3306/artflow1?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     static final String USER ="root";
     static final String PASSWORD ="";
     
